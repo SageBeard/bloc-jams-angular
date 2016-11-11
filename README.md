@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< a12f2ff60315cb876f9f228a7da564578c565295
+>>>>>>> 67638e0078c121fe9b382ad965d83cb8bdf18744
 ## Bloc Frontend Project Starter
 
 A starter application for student projects in Bloc's [Frontend Web Development Course](https://www.bloc.io/frontend-development-bootcamp).
@@ -165,4 +169,8 @@ A list of the Grunt plugins in this application.
 [Grunt Hapi](https://github.com/athieriot/grunt-hapi) runs a server using [`HapiJS`](http://hapijs.com/). Happy is a Node web application framework with robust configuration options.
 =======
 # bloc-jams-angular
+<<<<<<< HEAD
 >>>>>>> 0dfc22029914626c1cd2fb1442ecb23fcce76f28
+=======
+>>>>>>> Initial commit
+>>>>>>> 67638e0078c121fe9b382ad965d83cb8bdf18744
