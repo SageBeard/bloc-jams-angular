@@ -1,8 +1,24 @@
 (function() {
-  function SongPlayer() {
+  function SongPlayer(Fixtures) {
     var SongPlayer = {};
     
-    var currentSong = null;
+    var currentAlbum = Fixtures.getAlbum();
+    /**
+     * @desc Returns albumPicasso
+     * @type {Object}
+     */
+    
+    var getSongIndex = function(song) {
+      return currentAlbum.songs.indexOf(song);
+    };
+    
+    /**
+     * @function getSongIndex
+     * @desc returns index of song
+     * @type {object}
+     */
+    
+    SongPlayer.currentSong = null;
     var currentBuzzObject = null;
 
     
@@ -31,12 +47,13 @@
       * @desc Sets & plays new song if new song is clicked
       * @type {Object}
     */
-    SongPlayer.play = function(song) { 
-      if (currentSong !== song) {
+    SongPlayer.play = function(song) {
+      song = song || SongPlayer.currentSong;
+      if (SongPlayer.currentSong !== song) {
         setSong(song);
         playSong(song);//currentBuzzObject.play();
         //song.playing = true;
-      } else if (currentSong === song) {
+      } else if (SongPlayer.currentSong === song) {
          if (currentBuzzObject.isPaused()) {
              currentBuzzObject.play();
          }
@@ -49,6 +66,7 @@
     */
     
     SongPlayer.pause = function(song) {
+      song = song || SongPlayer.currentSong;
       currentBuzzObject.pause();
       song.playing = false;
  };
@@ -57,6 +75,27 @@
       * @desc Plays current song, sets property of song to true
       * @type {Object}
     */
+    
+     SongPlayer.previous = function() {
+       var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+       currentSongIndex--;
+
+      if (currentSongIndex < 0) {
+         currentBuzzObject.stop();
+         SongPlayer.currentSong.playing = null;
+       } else {
+         var song = currentAlbum.songs[currentSongIndex];
+         setSong(song);
+         playSong(song);
+       }
+  };
+    
+    /**
+     * @function songPlayer.previous
+     * @desc plays previous song
+     * @type {Object}
+    */
+    
     function playSong(song) {
       currentBuzzObject.play();
       song.playing = true;
