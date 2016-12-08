@@ -25,13 +25,18 @@
     */
     SongPlayer.currentTime = null; 
     var currentBuzzObject = null;
-
     
-/**
- * @function setSong
- * @desc Stops currently playing song and loads new audio file as currentBuzzObject
- * @param {Object} song
- */
+    SongPlayer.volume = null;
+    /**
+    * @desc holds value of volume
+    * @type {Object}
+    */
+    
+    /**
+    * @function setSong
+    * @desc Stops currently playing song and loads new audio file as currentBuzzObject
+    * @param {Object} song
+    */
  
     var setSong = function(song) {
       if (currentBuzzObject) {
@@ -136,6 +141,15 @@
   * @desc Set current time (in seconds) of currently playing song
   * @param {Number} time
   */
+    
+    SongPlayer.setVolume = function(volume) {
+      if (currentBuzzObject) {
+        currentBuzzObject.setVolume(volume);
+        console.log(volume);
+      }
+    };
+    
+    
     function playSong(song) {
       currentBuzzObject.play();
       song.playing = true;
