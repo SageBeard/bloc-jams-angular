@@ -27,11 +27,6 @@
     var currentBuzzObject = null;
     
     /**
-    * @desc holds value of volume
-    * @type {Object}
-    */
-    
-    /**
     * @function setSong
     * @desc Stops currently playing song and loads new audio file as currentBuzzObject
     * @param {Object} song
