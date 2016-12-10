@@ -30,6 +30,12 @@
           scope.max = newValue;
         });
         
+        var notifyOnChange = function(newValue) {
+          if (typeof scope.onChange === 'function') {
+            scope.onChange({value: newValue});
+          }
+        };
+
         var percentString = function () {
           var value = scope.value;
           var max = scope.max;
@@ -70,11 +76,6 @@
       }
     };
     
-    var notifyOnChange = function(newValue) {
-      if (typeof scope.onChange === 'function') {
-        scope.onChange({value: newValue});
-      }
-    };
   }
   
   angular
