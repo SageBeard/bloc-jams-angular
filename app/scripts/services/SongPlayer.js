@@ -19,6 +19,7 @@
      */
     
     SongPlayer.currentSong = null;
+
      /**
     * @desc Current playback time (in seconds) of currently playing song
     * @type {Number}
@@ -43,11 +44,10 @@
     });
       
       currentBuzzObject.bind('timeupdate', function() {
-        $rootScope.$apply(function() {
-          SongPlayer.currentTime = currentBuzzObject.getTime();
-        });
-      });
-
+         $rootScope.$apply(function() {
+             SongPlayer.currentTime = currentBuzzObject.getTime();
+         });
+     });
       
       SongPlayer.currentSong = song;
     };
@@ -142,6 +142,17 @@
       }
     };
     
+    
+    SongPlayer.setCurrentTime = function(time) {
+      if (currentBuzzObject) {
+        currentBuzzObject.setTime(time);
+      }
+    };
+     /**
+      * @function setCurrentTime
+      * @desc Set current time (in seconds) of currently playing song
+      * @param {Number} time
+      */
     
     function playSong(song) {
       currentBuzzObject.play();
