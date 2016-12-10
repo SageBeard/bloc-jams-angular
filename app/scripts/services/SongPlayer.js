@@ -26,6 +26,7 @@
     */
     SongPlayer.currentTime = null; 
     var currentBuzzObject = null;
+    SongPlayer.volume = null;
     
     /**
     * @function setSong
@@ -79,7 +80,7 @@
       song = song || SongPlayer.currentSong;
       currentBuzzObject.pause();
       song.playing = false;
- };
+    };
     /**
       * @function playSong
       * @desc Plays current song, sets property of song to true
@@ -97,7 +98,7 @@
          setSong(song);
          playSong(song);
        }
-  };
+     };
     
     /**
      * @function songPlayer.previous
@@ -117,7 +118,7 @@
          setSong(song);
          playSong(song);
        }
-  };
+    };
     
     /**
      * @function songPlayer.next
@@ -136,16 +137,16 @@
   * @param {Number} time
   */
     
-    SongPlayer.volume = function(value) {
+    SongPlayer.setVolume = function(value) {
       if (currentBuzzObject) {
-        currentBuzzObject.setVolume(value);
+        SongPlayer.volume = currentBuzzObject.setVolume(value);
       }
     };
     
     
-    SongPlayer.setCurrentTime = function(time) {
+    SongPlayer.setCurrentTime = function(newTime) {
       if (currentBuzzObject) {
-        currentBuzzObject.setTime(time);
+        currentBuzzObject.setTime(newTime);
       }
     };
      /**
@@ -165,7 +166,7 @@
     }
     
     return SongPlayer;
-}
+};
   
   angular
     .module('blocJams')
